@@ -1,0 +1,15 @@
+services:
+  agy:
+    image: ghcr.io/${GITHUB_REPOSITORY:-derekjchow/agy_docker}:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    volumes:
+      # Mount local .gemini folder to persist agy credentials and settings
+      # Tip: Change ./.gemini to ~/.gemini to share your host machine's login
+      - ./.gemini:/root/.gemini
+      # Mount your project workspace
+      - ./:/workspace

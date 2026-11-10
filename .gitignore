@@ -1,0 +1,8 @@
+# Keep the .gemini mount directory in git, but NEVER commit credentials or state
+.gemini/*
+!.gemini/.gitkeep
+
+# OS / Editor files
+.DS_Store
+*.swp
+*~
